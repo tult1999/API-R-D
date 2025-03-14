@@ -59,17 +59,6 @@ class CustomerService {
     }
   }
 
-  // Example: Find customers with a specific email domain
-  async findCustomersByEmailDomain(domain) {
-    try {
-      const regex = new RegExp(`@${domain}$`, 'i'); // Case-insensitive search
-      return await Customer.find({ email: regex });
-    } catch (error) {
-      console.error('Error finding customers by email domain:', error);
-      throw error;
-    }
-  }
-
   // Add more customer-related business logic here
 }
 
