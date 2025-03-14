@@ -1,3 +1,7 @@
+CREATE DATABASE fnb; -- Replace with your desired database name
+
+\c fnb;
+
 -- Table to store information about customer orders
 CREATE TABLE order_header (
     transaction_id VARCHAR(255) PRIMARY KEY,  -- Unique identifier for each transaction

@@ -8,9 +8,8 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=test
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./postgres_data:/var/lib/postgresql/data
       - ./pg_schema_ddl.sql:/docker-entrypoint-initdb.d/pg_schema_ddl.sql  # Mount the script
     ports:
       - 5432:5432
@@ -30,6 +29,18 @@ services:
       - 27017:27017
     networks:
       - my-network
+  
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      NODE_ENV: development
 
 volumes:
   postgres_data:
@@ -39,4 +50,4 @@ networks:
   my-network:
     driver: bridge
 
-name: api_practice  # Choose a unique project name
+name: api_server  # Choose a unique project name
