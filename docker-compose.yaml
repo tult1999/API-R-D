@@ -41,6 +41,8 @@ services:
       - /app/node_modules
     environment:
       NODE_ENV: development
+    networks:
+      - my-network
 
 volumes:
   postgres_data:

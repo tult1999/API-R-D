@@ -1,14 +1,19 @@
 const express = require('express');
 const customerRoutes = require('./routes/customer.route');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 const { pool } = require('./config/database')
 
 // Middleware
 app.use(express.json()); // Parse JSON request bodies
 
 // Attach the pool to the app object for use in routes/controllers
-app.set('dbPool', pool);
+try{
+  app.set('dbPool', pool);
+}catch(err){
+  console.log(err);
+}
+
 
 // Routes
 app.use('/customers', customerRoutes);
