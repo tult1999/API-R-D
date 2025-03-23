@@ -2,6 +2,7 @@ const customerService = require('./../services/customer.service');
 
 async function createCustomer(req, res) {
   try {
+    console.log('Request body: ', req.body);
     const newCustomer = await customerService.createCustomer(req.body);
     res.status(201).json(newCustomer);
   } catch (error) {

@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize('fnb', 'postgres', 'postgres', {
-  host: 'localhost', // Or '127.0.0.1' for local installation
+  host: 'postgres_db', // Or '127.0.0.1' for local installation
   dialect: 'postgres',
 });
 

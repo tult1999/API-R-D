@@ -1,10 +1,9 @@
-const Customer = require('./../models/customer.model'); // Assuming you have a customer.model.js
+const Customer = require('./../models/customer.modelv2'); // Assuming you have a customer.model.js
 
 class CustomerService {
   async createCustomer(customerData) {
     try {
-      const newCustomer = new Customer(customerData);
-      return await newCustomer.save();
+      return await Customer.create(customerData);
     } catch (error) {
       console.error('Error creating customer:', error);
       throw error; // Re-throw the error for handling in the controller
@@ -22,7 +21,7 @@ class CustomerService {
 
   async getAllCustomers() {
     try {
-      return await Customer.find();
+      return await Customer.findAll();
     } catch (error) {
       console.error('Error getting all customers:', error);
       throw error;

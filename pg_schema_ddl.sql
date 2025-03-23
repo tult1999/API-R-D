@@ -31,7 +31,7 @@ CREATE TABLE customers (
     membership_type VARCHAR(50) NOT NULL, -- Type of membership the customer has
     date_created DATE NOT NULL, -- Date when the customer record was created
     gender VARCHAR(10), -- Gender of the customer
-    age INTEGER CHECK (age IS NULL), -- Age of the customer (optional, with reasonable range check)
+    age INTEGER, -- Age of the customer (optional, with reasonable range check)
     group_age VARCHAR(10) -- Age group the customer belongs to
 );
 
